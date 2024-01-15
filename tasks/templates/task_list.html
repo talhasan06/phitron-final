@@ -11,11 +11,15 @@
                         <h5 class="card-title text-decoration-line-through">{{task.title}}</h5>
                     {% endif %}
                 </a>
-                <p class="card-text">{{ task.description | slice:":30" }}</p>
+                <p class="card-text">{{ task.description |  truncatechars:30 }} {% if value|length > 30 %}...{% endif %}</p>
                 {% if task.completed %}
-                    <span class="font-medium text-success">Completed</span>
+                <div class="bg-success px-2 py-1" style="display: inline-block;">
+                <span class="font-medium text-white">Completed</span>
+                </div>
                 {% else %}
-                <span class="font-medium text-danger">Not Completed</span>
+                <div class="bg-danger px-2 py-1" style="display: inline-block;">
+                <span class="font-medium text-white">Pending</span>
+                </div>
                 {% endif %}
                 </div>
             </div>
@@ -23,5 +27,5 @@
         {% endfor %}
     </div>
 {% else %}
-    <h3>No task available</h3>
+    <h5>No task available</h5>
 {% endif %}

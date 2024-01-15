@@ -12,13 +12,17 @@
             <p>{{task.description}}</p>
             <p class="card-text">Due Date: {{task.due_date}}</p>
             <p class="card-text">Due Time: {{task.due_time}}</p>
-            {% if task.completed %}
-              <span class="font-medium text-success">Completed</span>
-            {% else %}
-              <span class="font-medium text-danger">Not Completed</span>
-            {% endif %}
             <p class="card-text">Priority: {{task.priority}}</p>
             <p class="card-text"><small class="text-body-secondary">{{task.created_date}}</small></p>
+            {% if task.completed %}
+            <div class="bg-success px-2 py-1" style="display: inline-block;">
+              <span class="font-medium text-white">Completed</span>
+            </div>
+            {% else %}
+            <div class="bg-danger px-2 py-1" style="display: inline-block;">
+              <span class="font-medium text-white">Pending</span>
+            </div>
+            {% endif %}
             <a href="{% url 'delete' task.id %}">Delete</a>
           </div>
         </div>
