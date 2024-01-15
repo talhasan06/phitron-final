@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container d-flex justify-content-center my-5">
+    <div class="card mb-3" style="width: 540px;">
+      <div class="row">
+        <div class="col">
+          <div class="card-body">
+            <div class="d-flex">
+              <h5 class="card-title">{{task.title}}</h5>
+              <a href="{% url 'toggle_complete' task.id %}">Done</a>
+            </div>
+            <p>{{task.description}}</p>
+            <p class="card-text">Due Date: {{task.due_date}}</p>
+            <p class="card-text">Due Time: {{task.due_time}}</p>
+            {% if task.completed %}
+              <span class="font-medium text-success">Completed</span>
+            {% else %}
+              <span class="font-medium text-danger">Not Completed</span>
+            {% endif %}
+            <p class="card-text">Priority: {{task.priority}}</p>
+            <p class="card-text"><small class="text-body-secondary">{{task.created_date}}</small></p>
+            <a href="{% url 'delete' task.id %}">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

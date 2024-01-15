@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <a
+    href="{{ request.META.HTTP_REFERER }}"class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Go Back</a
+  >
+  <a href="{% url 'remove_task' task.id %}" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Yes, Delete</a>
+</div>
+{% endblock %}

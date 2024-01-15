@@ -1,0 +1,27 @@
+{% if tasks %}
+    <div class="row row-cols-1 row-cols-md-2 g-2 mb-4">
+        {% for task in tasks %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <a href="{% url 'task_detail' task.id %}" class="text-decoration-none">
+                    {% if not task.completed %}
+                        <h5 class="card-title">{{task.title}}</h5>
+                    {% else %}
+                        <h5 class="card-title text-decoration-line-through">{{task.title}}</h5>
+                    {% endif %}
+                </a>
+                <p class="card-text">{{ task.description | slice:":30" }}</p>
+                {% if task.completed %}
+                    <span class="font-medium text-success">Completed</span>
+                {% else %}
+                <span class="font-medium text-danger">Not Completed</span>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <h3>No task available</h3>
+{% endif %}

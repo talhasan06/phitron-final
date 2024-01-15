@@ -1,0 +1,19 @@
+{% if tasks %}
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+  {% for task in tasks %}
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <a href="{% url 'task_detail' task.id %}" class="text-decoration-none">
+            <h5 class="card-title">{{task.title}}</h5>
+        </a>
+        <p class="card-text">{{ task.description | slice:":30" }}</p>
+        <a href="{% url 'delete' task.id %}">Delete</a>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <h5>No pending task</h5>
+{% endif %}

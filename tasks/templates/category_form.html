@@ -1,0 +1,8 @@
+<form method="post">
+  {% csrf_token %}
+  <label for="">Category Name</label>
+  <div class="d-flex">
+    {{form.name}}
+    <button class="btn btn-danger" type="submit">Add Category</button>
+  </div>
+</form>
