@@ -27,7 +27,7 @@ class UserRegistrationFormView(FormView):
         uid = urlsafe_base64_encode(force_bytes(user.pk))
 
         confirm_link = f"http://127.0.0.1:8000/accounts/register/active/{uid}/{token}"
-        login_link = f"http://127.0.0.1:8000/accounts/login"
+        login_link = "https://arcane-project.onrender.com/accounts/login/"
         email_subject = 'Verify Your Email'
         email_body=render_to_string('email_verification.html', {'confirm_link': confirm_link,'login_link':login_link})
         email = EmailMultiAlternatives(email_subject,'',to=[user.email])
