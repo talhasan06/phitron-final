@@ -12,6 +12,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 class UserRegistrationFormView(FormView):
@@ -32,16 +33,9 @@ class UserRegistrationFormView(FormView):
         email = EmailMultiAlternatives(email_subject,'',to=[user.email])
         email.attach_alternative(email_body,"text/html")
         email.send()
+        messages.success(self.request, 'Check your email for verification.')
         return super().form_valid(form)
     
-    # def get_success_message(self, cleaned_data):
-    #     return "Check your email for confirmation"
-
-    # def form_invalid(self, form):
-    #     response = super().form_invalid(form)
-    #     messages.error(self.request, 'Form submission failed. Please check the form.')
-    #     return response
-
 def activate(request,uid64,token):
     try:
         uid = urlsafe_base64_decode(uid64).decode()

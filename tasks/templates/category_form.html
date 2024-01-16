@@ -1,8 +1,5 @@
-<form method="post">
+<form method="post" action="{% url 'add_category' %}" class="form">
   {% csrf_token %}
-  <label for="">Category Name</label>
-  <div class="d-flex">
-    {{form.name}}
-    <button class="btn btn-danger" type="submit">Add Category</button>
-  </div>
+  {{ cat_form.as_p}}
+  <button type="submit" class="btn btn-success">Create Category</button>
 </form>

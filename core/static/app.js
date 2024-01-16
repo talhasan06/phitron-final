@@ -1,24 +1,26 @@
 $(document).ready(function () {
+    function loadContent(url) {
+        $('#dynamicContentContainer').load(url);
+    }
+
     $('#allTasksButton').on('click', function (e) {
         e.preventDefault();
-        $('#dynamicContentContainer').load($(this).attr('href'));
+        loadContent($(this).attr('href'));
     });
-});
-$(document).ready(function () {
+
     $('#completedButton').on('click', function (e) {
         e.preventDefault();
-        $('#dynamicContentContainer').load($(this).attr('href'));
+        loadContent($(this).attr('href'));
     });
-});
-$(document).ready(function () {
+
     $('#pendingButton').on('click', function (e) {
         e.preventDefault();
-        $('#dynamicContentContainer').load($(this).attr('href'));
+        loadContent($(this).attr('href'));
     });
-});
-$(document).ready(function () {
-    $('#pendingButton').on('click', function (e) {
+
+    $('#dueDateSort').on('click', function (e) {
         e.preventDefault();
-        $('#dynamicContentContainer').load($(this).attr('href'));
+        loadContent($(this).attr('href'));
     });
+
 });

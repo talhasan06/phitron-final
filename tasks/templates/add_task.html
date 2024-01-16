@@ -9,12 +9,25 @@
           <form method="post" class="form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="#category-here">add new category</a>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Add Task</button>
             <br>
           </form>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="row justify-content-center mt-4" id="category-here">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Add Category</div>
+      <div class="card-body">
+        {% include 'category_form.html' %}
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 {% endblock %}
