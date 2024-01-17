@@ -29,7 +29,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://*.arcane-project.onrender.com/','https://*.127.0.0.1']
+# CSRF_TRUSTED_ORIGINS = ['https://*.arcane-project.onrender.com/','https://*.127.0.0.1']
 
 # Application definition
 
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'arcane_project.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://arcane_project_user:rlNYHtpJj6p1YI7tuorVfqqjVKgcRaxf@dpg-cmjfe8n109ks739j2ecg-a.oregon-postgres.render.com/arcane_project',
+        default='postgres://arcane_project_5lqa_user:or7BJFIK4NW5OnEZuBpgAmCdwwWWAC9F@dpg-cmjr7onqd2ns73bkuj9g-a.oregon-postgres.render.com/arcane_project_5lqa',
     )
 }
 
