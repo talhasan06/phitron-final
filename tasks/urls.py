@@ -4,8 +4,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .views import TaskListView,TaskCreateView,CompletedTaskListView,RemainingTaskListView,TaskDetailView,CategoryCreateView,ToggleCompleteView,delete_task,remove_task,EditTaskView
 urlpatterns = [
-    path('add_task/',TaskCreateView.as_view(),name='add_task'),
-    path('add_category/',CategoryCreateView.as_view(),name='add_category'),
+    path('add_task',TaskCreateView.as_view(),name='add_task'),
+    path('add_category',CategoryCreateView.as_view(),name='add_category'),
     path('completed',CompletedTaskListView.as_view(), name='completed'),
     path('remaining',RemainingTaskListView.as_view(), name='remaining'),
     path('toggle_complete/<int:task_id>',ToggleCompleteView.as_view(), name='toggle_complete'),
