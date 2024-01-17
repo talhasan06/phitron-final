@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from tasks.views import TaskListView
 urlpatterns = [
     path('',home,name='home'),
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('tasks/', include('tasks.urls')),
     path('tasks/<slug>/', TaskListView.as_view(), name='task_list'),

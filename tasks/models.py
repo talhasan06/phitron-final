@@ -6,6 +6,7 @@ import pytz
 # Create your models here.
 
 class Category(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100,unique=True, null=True, blank=True)
 
@@ -15,7 +16,7 @@ class Category(models.Model):
             self.slug = slugify(self.name)
 
         super().save(*args, **kwargs)
-        
+
     def __str__(self):
         return self.name
     
