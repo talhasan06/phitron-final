@@ -95,6 +95,24 @@ class TaskCreateView(LoginRequiredMixin, FormView):
             return super().form_valid(form)
         return render(request, self.template_name, {'form': form})
     
+class EditTaskView(LoginRequiredMixin,View):
+    template_name='edit_task.html'
+
+    def get(self,request,task_id):
+        task = get_object_or_404(Task,id = task_id,user=request.user)
+        form = TaskForm(instance=task)
+        return render(request,self.template_name,{'form':form,'task':task_id})
+    
+    def post(self, request, task_id):
+        task = get_object_or_404(Task, id=task_id, user=request.user)
+        form = TaskForm(request.POST, instance=task)
+
+        if form.is_valid():
+            form.instance.user = self.request.user
+            task = form.save() 
+            return redirect('home')
+        return render(request, self.template_name, {'form': form, 'task_id': task_id})
+
 class CategoryCreateView(View):
     template_name = 'category_form.html'
 

@@ -40,12 +40,14 @@
                             <span class="font-medium text-white">Pending</span>
                         </div>
                         {% endif %}
+                        <a href="{% url 'edit_task' task.id %}">Edit</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-    {% else %}
+    {% endif %}
+    {% if not request.user.is_authenticated %}
         <div class="text-center mt-5">
             <h4 class="text-danger">Please login to access your tasks</h4>
         </div>
